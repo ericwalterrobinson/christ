@@ -19,3 +19,10 @@ def main():
 	sleep(5)
 	lcd.clear()
 	lcd.message(getIP())
+
+if __name__ == '__main__':
+	try:
+		main()
+	except KeyboardInterrupt:
+		lcd.clear()
+		lcd.destroy()
