@@ -11,7 +11,7 @@ def getIP():
 		return "0.0.0.0"
 	
 def main():
-	
+	global lcd
 	lcd = LCD()
 
 	lcd.clear()
