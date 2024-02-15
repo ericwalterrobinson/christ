@@ -22,7 +22,7 @@ def main():
          while True:
             #print ('...LED ON')
             # Turn on LED
-            print(GPIO.input(greenPins))
+            print(GPIO.input(greenPins[0]))
             GPIO.output(greenPins, GPIO.LOW)
             GPIO.output(redPins, GPIO.HIGH)
             time.sleep(0.5)
