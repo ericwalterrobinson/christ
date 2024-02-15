@@ -41,8 +41,8 @@ def blinkForTime(pins, duration):
 def main():
    if len(sys.argv) == 2:
       if sys.argv[1] == "loop":
-         GPIO.output(redPins, GPIO.HIGH)
-         GPIO.output(greenPins, GPIO.LOW)
+         #GPIO.output(redPins, GPIO.HIGH)
+         #GPIO.output(greenPins, GPIO.LOW)
          while True:
             blinkForTime(allPins, 0.5)
             #print ('...LED ON')
