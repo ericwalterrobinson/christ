@@ -22,6 +22,7 @@ def setup():
 
 def hc595_shift(dat):
     for bit in range(0, 8):
+        print(dat, bit)
         GPIO.output(SDI, 0x80 & (dat << bit))
         GPIO.output(SRCLK, GPIO.HIGH)
         time.sleep(0.001)
@@ -31,6 +32,7 @@ def hc595_shift(dat):
     GPIO.output(RCLK, GPIO.LOW)
 
 def loop():
+    
     while True:
         for i in range(0, len(segCode)):
             hc595_shift(segCode[i])
