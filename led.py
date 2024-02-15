@@ -12,8 +12,16 @@ def setup():
    # Set LedPin's mode to output,and initial level to High(3.3v)
    GPIO.setup(allPins, GPIO.OUT, initial=GPIO.HIGH)
 
-#def blink(pins, duration):
-#   GPIO
+def switchState(pin):
+   return 1 if GPIO.input(pin) else 0
+
+def switchStateForTime(pins, duration):
+   if type(pins) is list:
+      for pin in pins:
+         GPIO.output(pin, switchState(pin)) #switches the high/low state
+   else:
+      GPIO.output(pins, switchState(pins))
+   time.sleep(duration)
 
 def main():
    if len(sys.argv) == 2:
@@ -36,9 +44,10 @@ def main():
       elif sys.argv[1] == "row":
          while True:
             for pin in orderedPins:
-               GPIO.output(pin, GPIO.LOW)
-               time.sleep(0.2)
-               GPIO.output(pin, GPIO.HIGH)
+               switchStateForTime(pin, 0.2)
+               #GPIO.output(pin, GPIO.LOW)
+               #time.sleep(0.2)
+               #GPIO.output(pin, GPIO.HIGH)
    else:
       print("What am I supposed to do with the LEDs?")
 
