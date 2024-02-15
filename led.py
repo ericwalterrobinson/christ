@@ -33,6 +33,7 @@ def blinkForTime(pins, duration):
       for pin in pins:
          print(pin, switchState(pin))
          GPIO.output(pin, switchState(pin))
+      time.sleep(duration)
    else:
       GPIO.output(pins, switchState(pins))
       time.sleep(duration)
@@ -41,17 +42,15 @@ def blinkForTime(pins, duration):
 def main():
    if len(sys.argv) == 2:
       if sys.argv[1] == "loop":
-         #GPIO.output(redPins, GPIO.HIGH)
-         #GPIO.output(greenPins, GPIO.LOW)
+         GPIO.output(redPins, GPIO.HIGH)
+         GPIO.output(greenPins, GPIO.LOW)
          while True:
             blinkForTime(allPins, 0.5)
-            #print ('...LED ON')
-            # Turn on LED
+
             #GPIO.output(greenPins, GPIO.LOW)
             #GPIO.output(redPins, GPIO.HIGH)
             #time.sleep(0.5)
-            #print ('LED OFF...')
-            # Turn off LED
+
             #GPIO.output(redPins, GPIO.LOW)
             #GPIO.output(greenPins, GPIO.HIGH)
             #time.sleep(0.5)
