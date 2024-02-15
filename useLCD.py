@@ -1,24 +1,24 @@
 from lcd import LCD
 from time import sleep
 import subprocess
+import sys
 
-def getIP():
-	addresses = subprocess.check_output("hostname -I", shell=True)
-	ipAddr = addresses.decode("utf-8").split()[0]
-	if(ipAddr):
-		return ipAddr
-	else:
-		return "0.0.0.0"
+
 	
 def main():
 	global lcd
 	lcd = LCD()
-
 	lcd.clear()
 	lcd.message("Welcome to --->\n  CLS TECH")
 	sleep(5)
 	lcd.clear()
-	lcd.message(getIP())
+	if sys.argv & sys.argv.__len__ == 1:
+		lcd.message(sys.argv[0])
+	elif sys.argv:
+		for msg in sys.argv:
+			lcd.message(msg)
+			sleep(5)
+			lcd.clear()
 
 if __name__ == '__main__':
 	try:
