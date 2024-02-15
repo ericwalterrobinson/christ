@@ -27,11 +27,9 @@ def rollingStateForTime(pins, duration):
 def blinkForTime(pins, duration):
    if type(pins) == list:
       for pin in pins:
-         print(pin, switchState(pin))
          GPIO.output(pin, switchState(pin))
       time.sleep(duration)
       for pin in pins:
-         print(pin, switchState(pin))
          GPIO.output(pin, switchState(pin))
       time.sleep(duration)
    else:
