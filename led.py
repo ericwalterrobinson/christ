@@ -39,7 +39,7 @@ def blinkForTime(pins, duration):
 
 def main():
    if len(sys.argv) == 2:
-      if sys.argv[1] == "loop":
+      if sys.argv[1] == "alternate":
          GPIO.output(redPins, GPIO.HIGH)
          GPIO.output(greenPins, GPIO.LOW)
          while True:
