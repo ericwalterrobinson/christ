@@ -10,9 +10,11 @@ def setup():
    # Set the GPIO modes to BCM Numbering
    GPIO.setmode(GPIO.BCM)
    # Set LedPin's mode to output,and initial level to High(3.3v)
-   #GPIO.setup(redPins, GPIO.OUT, initial=GPIO.LOW)
    GPIO.setup(allPins, GPIO.OUT, initial=GPIO.HIGH)
-# Define a main function for main process
+
+#def blink(pins, duration):
+#   GPIO
+
 def main():
    if len(sys.argv) == 2:
       if sys.argv[1] == "loop":
@@ -20,6 +22,7 @@ def main():
          while True:
             #print ('...LED ON')
             # Turn on LED
+            print(GPIO.input(greenPins))
             GPIO.output(greenPins, GPIO.LOW)
             GPIO.output(redPins, GPIO.HIGH)
             time.sleep(0.5)
@@ -36,6 +39,9 @@ def main():
                GPIO.output(pin, GPIO.HIGH)
    else:
       print("What am I supposed to do with the LEDs?")
+
+
+
 
 # Define a destroy function for clean up everything after the script finished
 def destroy():
