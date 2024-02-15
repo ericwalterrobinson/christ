@@ -13,6 +13,7 @@ def setup():
    GPIO.setup(allPins, GPIO.OUT, initial=GPIO.HIGH)
 
 def switchState(pin):
+   print(1 if GPIO.input(pin) else 0)
    return 1 if GPIO.input(pin) else 0
 
 def switchStateForTime(pins, duration):
