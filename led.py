@@ -16,13 +16,18 @@ def switchState(pin):
    #print(1 if GPIO.input(pin) == 0 else 0)
    return 1 if GPIO.input(pin) == 0 else 0
 
-def switchStateForTime(pins, duration):
+def rollingStateForTime(pins, duration):
    if type(pins) is list:
       for pin in pins:
          GPIO.output(pin, switchState(pin)) #switches the high/low state
    else:
       GPIO.output(pins, switchState(pins))
    time.sleep(duration)
+
+def blinkForTime(pin, duration): #assuming pin is integer
+   GPIO.output(pin, switchState(pin))
+   time.sleep(duration)
+   GPIO.output(pin, switchState(pin))
 
 def main():
    if len(sys.argv) == 2:
@@ -42,13 +47,18 @@ def main():
             GPIO.output(greenPins, GPIO.HIGH)
             print(GPIO.input(greenPins[0]))
             time.sleep(0.5)
-      elif sys.argv[1] == "row":
+      elif sys.argv[1] == "roll":
          while True:
             for pin in orderedPins:
-               switchStateForTime(pin, 0.2)
+               rollingStateForTime(pin, 0.2)
                #GPIO.output(pin, GPIO.LOW)
                #time.sleep(0.2)
                #GPIO.output(pin, GPIO.HIGH)
+      elif sys.argv[1] == "row":
+         while True:
+            for pin in orderedPins:
+               blinkForTime(pin, 0.2)
+
    else:
       print("What am I supposed to do with the LEDs?")
 
