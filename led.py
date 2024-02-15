@@ -34,7 +34,8 @@ def main():
                GPIO.output(pin, GPIO.LOW)
                time.sleep(0.2)
                GPIO.output(pin, GPIO.HIGH)
-
+   else:
+      print("What am I supposed to do with the LEDs?")
 
 # Define a destroy function for clean up everything after the script finished
 def destroy():
