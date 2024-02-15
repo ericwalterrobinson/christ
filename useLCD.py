@@ -12,7 +12,7 @@ def main():
 	lcd.message("Welcome to --->\n  CLS TECH")
 	sleep(5)
 	lcd.clear()
-	if sys.argv & sys.argv.__len__ == 1:
+	if sys.argv & len(sys.argv) == 1:
 		lcd.message(sys.argv[0])
 	elif sys.argv:
 		for msg in sys.argv:
