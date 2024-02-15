@@ -29,10 +29,11 @@ def main():
             GPIO.output(greenPins, GPIO.HIGH)
             time.sleep(0.5)
       elif sys.argv[1] == "row":
-         for pin in orderedPins:
-            GPIO.output(pin, GPIO.LOW)
-            time.sleep(0.2)
-            GPIO.output(pin, GPIO.HIGH)
+         while True:
+            for pin in orderedPins:
+               GPIO.output(pin, GPIO.LOW)
+               time.sleep(0.2)
+               GPIO.output(pin, GPIO.HIGH)
 
 
 # Define a destroy function for clean up everything after the script finished
