@@ -24,29 +24,33 @@ def rollingStateForTime(pins, duration):
       GPIO.output(pins, switchState(pins))
    time.sleep(duration)
 
-def blinkForTime(pin, duration): #assuming pin is integer
-   GPIO.output(pin, switchState(pin))
-   time.sleep(duration)
-   GPIO.output(pin, switchState(pin))
+def blinkForTime(pins, duration):
+   if type(pins) == list:
+      GPIO.output(pins, switchState(pins))
+      time.sleep(duration)
+      GPIO.output(pins, switchState(pins))
+   else:
+      GPIO.output(pins, switchState(pins))
+      time.sleep(duration)
+      GPIO.output(pins, switchState(pins))
 
 def main():
    if len(sys.argv) == 2:
       if sys.argv[1] == "loop":
          GPIO.output(redPins, GPIO.HIGH)
+         GPIO.output(greenPins, GPIO.LOW)
          while True:
+            blinkForTime(allPins, 0.5)
             #print ('...LED ON')
             # Turn on LED
-            
-            GPIO.output(greenPins, GPIO.LOW)
-            print(GPIO.input(greenPins[0]))
-            GPIO.output(redPins, GPIO.HIGH)
-            time.sleep(0.5)
+            #GPIO.output(greenPins, GPIO.LOW)
+            #GPIO.output(redPins, GPIO.HIGH)
+            #time.sleep(0.5)
             #print ('LED OFF...')
             # Turn off LED
-            GPIO.output(redPins, GPIO.LOW)
-            GPIO.output(greenPins, GPIO.HIGH)
-            print(GPIO.input(greenPins[0]))
-            time.sleep(0.5)
+            #GPIO.output(redPins, GPIO.LOW)
+            #GPIO.output(greenPins, GPIO.HIGH)
+            #time.sleep(0.5)
       elif sys.argv[1] == "roll":
          while True:
             for pin in orderedPins:
