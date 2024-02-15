@@ -30,6 +30,7 @@ def main():
             # Turn off LED
             GPIO.output(redPins, GPIO.LOW)
             GPIO.output(greenPins, GPIO.HIGH)
+            print(GPIO.input(greenPins[0]))
             time.sleep(0.5)
       elif sys.argv[1] == "row":
          while True:
