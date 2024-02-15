@@ -31,6 +31,7 @@ def blinkForTime(pins, duration):
          GPIO.output(pin, switchState(pin))
       time.sleep(duration)
       for pin in pins:
+         print(pin, switchState(pin))
          GPIO.output(pin, switchState(pin))
    else:
       GPIO.output(pins, switchState(pins))
